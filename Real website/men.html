@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Men Collections - Riwayat Fashion House</title>
+<style>
+
+
+
+/* --- 1. FONTS & BASE STYLES --- */
+@font-face {
+    font-family: 'RiwayatBrandFont'; 
+    src: url('hader_footer/Website%20Name%20Font%201.otf') format('opentype'); 
+}
+
+body { 
+    margin: 0; 
+    font-family: Arial, sans-serif; 
+    background: #f8f5f0; 
+    padding-bottom: 50px; 
+}
+
+
+
+
+
+/* --- 2. HEADER & LOGO EMBLEM --- */
+header {  
+    background: #0b3d2e; 
+    color: gold;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    gap: 20px; 
+    padding: 15px 50px; 
+}
+
+header img { 
+    width: 110px; 
+    min-width: 80px; 
+    max-width: 140px;
+    /* Updated Logo Background Box Color */
+    background: #fdfcf0; 
+    padding: 10px;         
+    border-radius: 15px;   
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+header h1 {
+    font-family: 'RiwayatBrandFont', Arial, sans-serif; 
+    font-size: clamp(20px, 4vw, 50px); /* Auto-adjusting size */
+    font-weight: bold;           
+    letter-spacing: 3px;           
+    color: gold;                   
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); 
+    margin: 0;                     
+}
+
+.tagline {
+    font-family: Arial, sans-serif; 
+    font-size: clamp(12px, 1.2vw, 16px); 
+    color: #e2dfda;             
+    letter-spacing: 3px;        
+    text-transform: uppercase;  
+    margin-top: 5px;            
+}
+
+
+
+
+
+
+/* --- NAVIGATION --- */
+nav { 
+    display: flex; 
+    justify-content: center; 
+    flex-wrap: wrap; /* NEW: This is the magic word that lets the menu drop to a second line on small phones instead of cutting off! */
+    background: #1b263b; 
+    gap: 5px; /* Slightly smaller gap to fit more on the screen */
+    padding: 5px;
+}
+
+nav a { 
+    color: white;  
+    padding: 10px 15px; /* Slightly smaller padding so buttons aren't too wide on mobile */
+    text-decoration: none; 
+    text-decoration: none;
+    border-radius: 3px;
+    transition: all 0.20s ease; 
+    white-space: nowrap; /* NEW: Forces words to stay together without breaking halfway */
+}
+
+nav a:hover { 
+    background: #415a77; 
+    transform: scale(1.1); /* CHANGED: 1.3 is a bit too huge for phone screens and might overlap. 1.1 gives a clean, premium pop! */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+/* --- 4. AUTO-ADJUSTING PAGE TITLE --- */
+.page-title {
+    text-align: center;
+    color: #0b3d2e;
+    font-family: 'RiwayatBrandFont', Arial, sans-serif;
+    text-transform: normal;
+    font-weight: bold;
+    letter-spacing: 0.15em;
+    font-size: clamp(20px, 5vw, 48px); 
+    margin: 6vh auto 3vh auto;
+    display: table;
+    border-bottom: 3px solid gold;
+    padding-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+/* --- 5. PREMIUM PRODUCT GRID & GALLERY --- */
+.categories { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 20px; 
+    padding: 20px 5vw; 
+}
+
+.card { 
+    background: white; 
+    padding: 15px;    
+    border-radius: 10px; 
+    text-align: center; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+    display: flex;
+    flex-direction: column;
+}
+
+/* Horizontal Gallery inside Card */
+.gallery-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    scroll-snap-type: x mandatory;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.gallery-container::-webkit-scrollbar { height: 5px; }
+.gallery-container::-webkit-scrollbar-thumb { background: gold; border-radius: 10px; }
+
+.gallery-container img {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    cursor: zoom-in;
+    
+    /* 1. Fluid Width */
+    width: 100%;          
+    
+    /* 2. THE CLAMP MAGIC */
+    /* clamp(Minimum Size, Preferred Size, Maximum Size) */
+    /* If you zoom in a lot, it won't get smaller than 300px. */
+    /* If you zoom out a lot, it won't get larger than 700px. */
+    /* In the middle, it stays at exactly 50% of your screen height (50vh)! */
+    max-height: clamp(350px, 60vh, 800px); 
+    
+    /* 3. Shape & Fit */
+    height: auto;         
+    aspect-ratio: 3 / 4;  
+    object-fit: cover;    
+    user-select: none;
+    transition: transform 0.3s ease;    
+}
+
+.card h3 {
+    font-size: clamp(18px, 1.5vw, 22px); 
+    margin: 10px 0 5px 0;
+    color: #1b263b;
+}
+
+.card h4 {
+    font-size: 13px;
+    color: #777;
+    margin: 0 0 10px 0;
+    font-weight: normal;
+}
+
+
+
+
+
+
+
+/* --- PRICE & DISCOUNT STYLES --- */
+.price-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.old-price {
+    font-size: 14px;
+    color: #888;
+    text-decoration: line-through; /* This adds the strike-through line */
+}
+
+.new-price {
+    font-size: 22px;
+    font-weight: bold;
+    color: #0b3d2e; /* Your brand green */
+}
+
+.discount-tag {
+    background-color: #d9534f; /* Soft red for the discount */
+    color: white;
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+
+
+
+
+
+
+/* --- 6. BUTTONS --- */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.btn-desc {
+    background: transparent;
+    border: 1px solid #1b263b;
+    color: #1b263b;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-desc:hover {
+    background: #1b263b;
+    color: white;
+}
+
+.btn-whatsapp {
+    display: inline-block;
+    background: #25D366;
+    color: white; 
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px; 
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-whatsapp:hover {
+    background: #128C7E;
+}
+
+
+
+/* --- 7. NEW: INTERACTIVE LIGHTBOX MODALS --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.95);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 85%;
+    max-height: 85vh;
+    animation: zoomIn 0.3s ease;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+
+
+
+
+
+/* Gallery Navigation Arrows */
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: gold;
+    border: 1px solid gold;
+    font-size: 30px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s ease;
+    z-index: 10001;
+}
+
+.nav-arrow:hover { background: gold; color: #0b3d2e; }
+.prev-arrow { left: 5%; }
+.next-arrow { right: 5%; }
+
+.close-btn {
+    position: absolute;
+    top: 15px; right: 25px;
+    color: gold; font-size: 40px; cursor: pointer;
+    z-index: 10002;
+}
+
+.note-box {
+    background: #0b3d2e;
+    padding: 30px;
+    border-radius: 15px;
+    width: 85%;
+    max-width: 500px;
+    color: white;
+    border: 1px solid gold;
+    position: relative;
+}
+
+@keyframes zoomIn { from {transform:scale(0.8)} to {transform:scale(1)} }
+
+
+
+
+
+
+
+
+/* --- FOOTER & TICKER --- */
+
+footer { 
+    background: #0d1b2a; 
+    color: white; 
+    text-align: center; 
+    padding: 0.2px 10px 0px 10px; /* Top, Right, Bottom, Left padding */
+}
+
+/* 2. NEW: Fix the line spacing for the text inside the footer */
+footer p {
+    margin: 5px 0;   /* This removes the huge default gap and sets a tight 5px space */
+    font-size: 12px; /* Makes the contact text slightly smaller and neater */
+}
+
+
+.ticker {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #0b3d2e; 
+    color: gold;
+    overflow: hidden;
+    white-space: nowrap;
+    z-index: 1000; 
+}
+
+.ticker p {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scrollText 15s linear infinite; 
+    font-weight: bold;
+    margin: 10px 0; 
+}
+
+.ticker:hover p {
+    animation-play-state: paused;
+}
+
+@keyframes scrollText {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+
+/* 3. Tighten up the designer credit line to match */
+.credit-line {
+    /* --- FONT SETTINGS --- */
+    font-size: 8px;       
+    color: gold;           
+    letter-spacing: 1px;   
+
+    /* --- MARGIN (Space OUTSIDE the text/border) --- */
+    margin-top: 0px;      /* Space above the top border line */
+    margin-bottom: 2px;    /* Space below the text */
+    margin-left: 0px;      /* Pushes the whole block from the left */
+    margin-right: 0px;     /* Pushes the whole block from the right */
+
+    /* --- PADDING (Space INSIDE, between the border line and the text) --- */
+    padding-top: 0.5px;     /* Space between the line and your name */
+    padding-bottom: 0.5px;   /* Space under your name */
+    padding-left: 0px;     /* Indents the text from the left */
+    padding-right: 0px;    /* Indents the text from the right */
+
+    /* --- THE DIVIDING LINE --- */
+    border-top: 1px solid rgba(255, 255, 255, 0.2); 
+}
+
+</style>
+</head>
+<body>
+
+
+
+
+
+<header>
+    <img src="hader_footer/logo.png" alt="Logo">
+    <div class="brand-text">
+        <h1>Riwayat Fashion House</h1>
+        <h3 class="tagline">Premium Clothing & Accessories</h3>
+    </div>
+</header>
+
+
+
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="women.html">Women</a>
+    <a href="men.html">Men</a>
+    <a href="weekly.html">Weekly Updated</a>
+    <a href="kids.html">Kids</a>
+    <a href="bags.html">Bags</a>
+
+</nav>
+
+
+
+
+
+
+
+<h2 class="page-title">Men Collections</h2>
+
+<section class="categories">
+
+   
+
+ <!-- Card 1 -->
+    <div class="card">
+        <div class="gallery-container">
+            <img src="men/1mimage1.jpg" draggable="false" onclick="openLightbox(this)">
+            <img src="men/1mimage2.jpg" draggable="false" onclick="openLightbox(this)">
+            <img src="men/1mimage3.jpg" draggable="false" onclick="openLightbox(this)">
+            <img src="men/1mimage4.jpg" draggable="false" onclick="openLightbox(this)">
+            <img src="men/1mimage5.jpg" draggable="false" onclick="openLightbox(this)">
+            <img src="men/1mimage6.jpg" draggable="false" onclick="openLightbox(this)">
+            <img src="men/1mimage7.jpg" draggable="false" onclick="openLightbox(this)">
+            <img src="men/1mimage8.jpg" draggable="false" onclick="openLightbox(this)">
+            <img src="men/1mimage9.jpg" draggable="false" onclick="openLightbox(this)">
+            <img src="men/1mimage10.jpg" draggable="false" onclick="openLightbox(this)">
+        </div>
+        <h3>Premium Summer Soft Cotton</h3>
+        <h4>Article Code: R-MN0001</h4>
+        <div class="price-container">
+    <span class="old-price">Rs. 4500</span>
+    <span class="new-price">Rs. 3150</span>
+    <span class="discount-tag">30% OFF</span>
+</div>
+<div class="product-note" style="display:none;">
+            <strong>Fabric:</strong>Soft Cotton (Airjet)<br>
+            <strong>Details:</strong>4.5m * 1.37m <br>
+            <strong>Size:</strong> Unstitched.<br>
+            <strong>Payment Method:<br></strong> 1. easypaisa(03236036808)<br>2. whatsapp(03236036808)<br>3. HBL Bank(16817909277103).<br>
+        </div>
+        <div class="button-group">
+            <button class="btn-desc" onclick="showNote(this)">View Details</button>
+            <a href="https://wa.me/03347729634" class="btn-whatsapp">Order on WhatsApp</a>
+        </div>
+    </div>
+
+
+
+
+
+
+ <!-- Card 2 -->
+    <div class="card">
+        <div class="gallery-container">
+            <img src="men/2mimage1.jpg" draggable="false" onclick="openLightbox(this)">
+            <img src="men/2mimage2.jpg" draggable="false" onclick="openLightbox(this)">
+            <img src="men/2mimage3.jpg" draggable="false" onclick="openLightbox(this)">
+            <img src="men/2mimage4.jpg" draggable="false" onclick="openLightbox(this)">
+            <img src="men/2mimage5.jpg" draggable="false" onclick="openLightbox(this)">
+            <img src="men/2mimage6.jpg" draggable="false" onclick="openLightbox(this)">
+            <img src="men/2mimage7.jpg" draggable="false" onclick="openLightbox(this)">
+            <img src="men/2mimage8.jpg" draggable="false" onclick="openLightbox(this)">
+            <img src="men/2mimage9.jpg" draggable="false" onclick="openLightbox(this)">
+            <img src="men/2mimage10.jpg" draggable="false" onclick="openLightbox(this)">
+        </div>
+        <h3>Supreme - Wash & Wear</h3>
+        <h4>Article Code: R-MN0002</h4>
+        <div class="price-container">
+    <span class="old-price">Rs. 3500</span>
+    <span class="new-price">Rs. 2800</span>
+    <span class="discount-tag">20% OFF</span>
+</div>
+<div class="product-note" style="display:none;">
+            <strong>Fabric:</strong> Wash & Wear<br>
+            <strong>Details:</strong> Plain.<br>
+            <strong>Size:</strong> Unstitched.<br>
+            <strong>Payment Method:<br></strong> 1. easypaisa(03236036808)<br>2. whatsapp(03236036808)<br>3. HBL Bank(16817909277103).<br>
+        </div>
+        <div class="button-group">
+            <button class="btn-desc" onclick="showNote(this)">View Details</button>
+            <a href="https://wa.me/03347729634" class="btn-whatsapp">Order on WhatsApp</a>
+        </div>
+    </div>
+
+
+
+ <!-- Card 3 -->
+     <div class="card">
+        <div class="gallery-container">
+            <img src="men/3mimage1.jpeg" draggable="false" onclick="openLightbox(this)">
+            <img src="men/3mimage2.jpeg" draggable="false" onclick="openLightbox(this)">
+            <img src="men/3mimage3.jpeg" draggable="false" onclick="openLightbox(this)">
+            <img src="men/3mimage4.jpeg" draggable="false" onclick="openLightbox(this)">
+            <img src="men/3mimage5.jpeg" draggable="false" onclick="openLightbox(this)">
+            <img src="men/3mimage6.jpeg" draggable="false" onclick="openLightbox(this)">
+            <img src="men/3mimage7.jpeg" draggable="false" onclick="openLightbox(this)">
+            <img src="men/3mimage8.jpeg" draggable="false" onclick="openLightbox(this)">
+            <img src="men/3mimage9.jpeg" draggable="false" onclick="openLightbox(this)">
+            <img src="men/3mimage10.jpeg" draggable="false" onclick="openLightbox(this)">
+        </div>
+        <h3>Jack & Jones Trousers</h3>
+        <h4>Article Code: R-MN0003</h4>
+        <div class="price-container">
+    <span class="old-price">Rs. 3500</span>
+    <span class="new-price">Rs. 2800</span>
+    <span class="discount-tag">20% OFF</span>
+</div>
+<div class="product-note" style="display:none;">
+            <strong>Fabric:</strong> Premium Pima Lawn<br>
+            <strong>Details:</strong> Embroidered Front, Digital Print Silk Dupatta, Dyed Trousers.<br>
+            <strong>Size:</strong> Unstitched.<br>
+            <strong>Payment Method:<br></strong> 1. easypaisa(03236036808)<br>2. whatsapp(03236036808)<br>3. HBL Bank(16817909277103).<br>
+        </div>
+        <div class="button-group">
+            <button class="btn-desc" onclick="showNote(this)">View Details</button>
+            <a href="https://wa.me/03347729634" class="btn-whatsapp">Order on WhatsApp</a>
+        </div>
+    </div>
+
+
+</section>
+
+
+
+
+<!-- ================= NEW LIGHTBOX MODAL ================= -->
+<div id="fullScreenModal" class="modal" onclick="closeLightbox()">
+    <span class="close-btn" onclick="closeLightbox()">&times;</span>
+    <button class="nav-arrow prev-arrow" onclick="changeImage(-1, event)">&#10094;</button>
+    <img class="modal-content" id="fullImg" onclick="event.stopPropagation()">
+    <button class="nav-arrow next-arrow" onclick="changeImage(1, event)">&#10095;</button>
+</div>
+
+<!-- ================= DESCRIPTION NOTE MODAL ================= -->
+<div id="noteModal" class="modal" onclick="document.getElementById('noteModal').style.display='none'">
+    <div class="note-box" onclick="event.stopPropagation()">
+        <span class="close-btn" onclick="document.getElementById('noteModal').style.display='none'">&times;</span>
+        <h2 id="noteTitle" style="color:gold; margin-top:0;"></h2>
+        <hr style="border: 0.5px solid rgba(255,215,0,0.3); margin-bottom:15px;">
+        <p id="noteText" style="line-height:1.6;"></p>
+    </div>
+</div>
+
+<div class="ticker">
+    <p>⚠ Only Contact on WhatsApp before order | Just click on ☛ ☛ ☛ <a href="https://wa.me/03347729634" style="color:white; text-decoration:underline;">WhatsApp: 03347729634</a></p>
+</div>
+
+<footer>
+    <p>Contact: 0334-7729634 </p>
+    <p>Email: riwayatfashionhouse.fsd@gmail.com</p>
+    <div class="credit-line">Designed by Muhammad Abdul Munaf | 0308-7965975</div>
+</footer>
+
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+// Logic for the sliding image gallery
+let currentGallery = [];
+let currentIndex = 0;
+
+function openLightbox(clickedImage) {
+    let container = clickedImage.closest('.gallery-container');
+    currentGallery = Array.from(container.querySelectorAll('img'));
+    currentIndex = currentGallery.indexOf(clickedImage);
+    updateModalImage();
+    document.getElementById("fullScreenModal").style.display = "flex";
+}
+
+function updateModalImage() {
+    if (currentGallery.length > 0) {
+        document.getElementById("fullImg").src = currentGallery[currentIndex].src;
+    }
+}
+
+function changeImage(direction, event) {
+    if (event) event.stopPropagation(); 
+    currentIndex += direction;
+    if (currentIndex >= currentGallery.length) {
+        currentIndex = 0;
+    } else if (currentIndex < 0) {
+        currentIndex = currentGallery.length - 1;
+    }
+    updateModalImage();
+}
+
+function closeLightbox() {
+    document.getElementById("fullScreenModal").style.display = "none";
+}
+
+// Logic for the View Details Pop-up
+function showNote(btn) {
+    let card = btn.closest('.card');
+    document.getElementById("noteTitle").innerText = card.querySelector('h3').innerText;
+    document.getElementById("noteText").innerHTML = card.querySelector('.product-note').innerHTML;
+    document.getElementById("noteModal").style.display = "flex";
+}
+</script>
+
+</body>
+</html>
