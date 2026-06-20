@@ -61,9 +61,9 @@ header h1 {
     font-size: clamp(20px, 4vw, 50px); /* Auto-adjusting size */
     font-weight: bold;           
     letter-spacing: 3px;           
-    color: gold;                   
+    color: gold;                    
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); 
-    margin: 0;                     
+    margin: 0;                      
 }
 
 .tagline {
@@ -316,9 +316,9 @@ pointer-events: none;
     color: white;
 }
 
-.btn-whatsapp {
+.btn-instagram {
     display: inline-block;
-    background: #25D366;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
     color: white; 
     text-decoration: none;
     font-weight: bold;
@@ -327,8 +327,24 @@ pointer-events: none;
     transition: 0.3s;
 }
 
-.btn-whatsapp:hover {
-    background: #128C7E;
+.btn-instagram:hover {
+    opacity: 0.9;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+}
+
+.btn-catalog {
+    display: inline-block;
+    background: #1b263b;
+    color: white; 
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px; 
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-catalog:hover {
+    background: #415a77;
 }
 
 
@@ -512,10 +528,9 @@ footer p {
 
 <section class="categories">
 
-   
+    
 
- <!-- Card 1 -->
-    <div class="card">
+ <div class="card">
 <div class="coming-soon-ribbon">Coming Soon</div>
         <div class="gallery-container">
             <img src="bags/1bimage1.jpg" draggable="false" onclick="openLightbox(this)">
@@ -538,7 +553,8 @@ footer p {
         </div>
         <div class="button-group">
             <button class="btn-desc" onclick="showNote(this)">View Details</button>
-            <a href="https://wa.me/03347729634" class="btn-whatsapp">Order on WhatsApp</a>
+            <a href="https://instagram.com/your_username" class="btn-instagram">Instagram</a>
+            <a href="https://yourcataloglink.com" class="btn-catalog">View Catalog</a>
         </div>
     </div>
 
@@ -547,8 +563,7 @@ footer p {
 
 
 
- <!-- Card 2 -->
-    <div class="card">
+ <div class="card">
     <div class="sold-ribbon">Sold Out</div>
         <div class="gallery-container">
             <img src="bags/2bimage1.jpg" draggable="false" onclick="openLightbox(this)">
@@ -571,7 +586,8 @@ footer p {
         </div>
         <div class="button-group">
             <button class="btn-desc" onclick="showNote(this)">View Details</button>
-            <a href="https://wa.me/03347729634" class="btn-whatsapp">Order on WhatsApp</a>
+            <a href="https://instagram.com/your_username" class="btn-instagram">Instagram</a>
+            <a href="https://yourcataloglink.com" class="btn-catalog">View Catalog</a>
         </div>
     </div>
 
@@ -581,8 +597,7 @@ footer p {
 
 
 
- <!-- Card 3 -->
-     <div class="card">
+ <div class="card">
     <div class="sold-ribbon">Sold Out</div>
         <div class="gallery-container">
             <img src="bags/3bimage1.jpg" draggable="false" onclick="openLightbox(this)">
@@ -605,7 +620,8 @@ footer p {
         </div>
         <div class="button-group">
             <button class="btn-desc" onclick="showNote(this)">View Details</button>
-            <a href="https://wa.me/03347729634" class="btn-whatsapp">Order on WhatsApp</a>
+            <a href="https://instagram.com/your_username" class="btn-instagram">Instagram</a>
+            <a href="https://yourcataloglink.com" class="btn-catalog">View Catalog</a>
         </div>
     </div>
 
@@ -614,8 +630,7 @@ footer p {
 
 
 
- <!-- Card 4 -->
-    <div class="card">
+ <div class="card">
     <div class="sold-ribbon">Sold Out</div>
         <div class="gallery-container">
             <img src="bags/4bimage1.jpg" draggable="false" onclick="openLightbox(this)">
@@ -638,14 +653,14 @@ footer p {
         </div>
         <div class="button-group">
             <button class="btn-desc" onclick="showNote(this)">View Details</button>
-            <a href="https://wa.me/03347729634" class="btn-whatsapp">Order on WhatsApp</a>
+            <a href="https://instagram.com/your_username" class="btn-instagram">Instagram</a>
+            <a href="https://yourcataloglink.com" class="btn-catalog">View Catalog</a>
         </div>
     </div>
 
 
 </section>
 
-<!-- ================= NEW LIGHTBOX MODAL ================= -->
 <div id="fullScreenModal" class="modal" onclick="closeLightbox()">
     <span class="close-btn" onclick="closeLightbox()">&times;</span>
     <button class="nav-arrow prev-arrow" onclick="changeImage(-1, event)">&#10094;</button>
@@ -653,7 +668,6 @@ footer p {
     <button class="nav-arrow next-arrow" onclick="changeImage(1, event)">&#10095;</button>
 </div>
 
-<!-- ================= DESCRIPTION NOTE MODAL ================= -->
 <div id="noteModal" class="modal" onclick="document.getElementById('noteModal').style.display='none'">
     <div class="note-box" onclick="event.stopPropagation()">
         <span class="close-btn" onclick="document.getElementById('noteModal').style.display='none'">&times;</span>
@@ -673,7 +687,6 @@ footer p {
     <div class="credit-line">Designed by Muhammad Abdul Munaf | 0308-7965975</div>
 </footer>
 
-<!-- ================= JAVASCRIPT ================= -->
 <script>
 // Logic for the sliding image gallery
 let currentGallery = [];
