@@ -385,58 +385,6 @@ footer p {
     </div>
 </div>
 
-<div class="ticker">
-    <p>☛ Check out our complete collection on Instagram and Catalog! Just click on the buttons above ☚</p>
-</div>
 
-<footer>
-    <p>Contact: 0334-7729634 </p>
-    <p>Email: riwayatfashionhouse.fsd@gmail.com</p>
-    <div class="credit-line">Designed by Muhammad Abdul Munaf | 0308-7965975</div>
-</footer>
-
-<!-- ================= JAVASCRIPT ================= -->
-<script>
-// Logic for the sliding image gallery
-let currentGallery = [];
-let currentIndex = 0;
-
-function openLightbox(clickedImage) {
-    let container = clickedImage.closest('.gallery-container');
-    currentGallery = Array.from(container.querySelectorAll('img'));
-    currentIndex = currentGallery.indexOf(clickedImage);
-    updateModalImage();
-    document.getElementById("fullScreenModal").style.display = "flex";
-}
-
-function updateModalImage() {
-    if (currentGallery.length > 0) {
-        document.getElementById("fullImg").src = currentGallery[currentIndex].src;
-    }
-}
-
-function changeImage(direction, event) {
-    if (event) event.stopPropagation(); 
-    currentIndex += direction;
-    if (currentIndex >= currentGallery.length) {
-        currentIndex = 0;
-    } else if (currentIndex < 0) {
-        currentIndex = currentGallery.length - 1;
-    }
-    updateModalImage();
-}
-
-function closeLightbox() {
-    document.getElementById("fullScreenModal").style.display = "none";
-}
-
-// Logic for the View Details Pop-up
-function showNote(btn) {
-    let card = btn.closest('.card');
-    document.getElementById("noteTitle").innerText = card.querySelector('h3').innerText;
-    document.getElementById("noteText").innerHTML = card.querySelector('.product-note').innerHTML;
-    document.getElementById("noteModal").style.display = "flex";
-}
-</script>
 </body>
 </html>
