@@ -399,13 +399,6 @@ footer p {
 </section>
 
 
-<!-- ================= NEW LIGHTBOX MODAL ================= -->
-<div id="fullScreenModal" class="modal" onclick="closeLightbox()">
-    <span class="close-btn" onclick="closeLightbox()">&times;</span>
-    <button class="nav-arrow prev-arrow" onclick="changeImage(-1, event)">&#10094;</button>
-    <img class="modal-content" id="fullImg" onclick="event.stopPropagation()">
-    <button class="nav-arrow next-arrow" onclick="changeImage(1, event)">&#10095;</button>
-</div>
 
 
 <div class="ticker">
@@ -453,13 +446,6 @@ function closeLightbox() {
     document.getElementById("fullScreenModal").style.display = "none";
 }
 
-// Logic for the View Details Pop-up
-function showNote(btn) {
-    let card = btn.closest('.card');
-    document.getElementById("noteTitle").innerText = card.querySelector('h3').innerText;
-    document.getElementById("noteText").innerHTML = card.querySelector('.product-note').innerHTML;
-    document.getElementById("noteModal").style.display = "flex";
-}
 </script>
 
 </body>
